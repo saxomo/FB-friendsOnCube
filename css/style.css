@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+body {font-family: 'Lucida Grande', Verdana, Arial, sans-serif;}
+#checkline{border:solid thin black;}
+#table{ margin:0 0 0 70px; }
+#table td{height:50px;width:50px;overflow:hidden;}
+div{width: 0px;height:0px; overflow:hidden;}
+#table{ width:460px; background-color: #CCC}
+#experiment,#cube  {height:600px; width:800px;overflow:visible;}
+#sub{margin:0 0 0 260px;width:11%}
+img.invisible{ position:absolute;left:10000px}
+input{margin:30px 0 0 30px; }
+.face{ overflow:hidden;height:300px;width:300px;}
+#cube > .face {position:absolute; height:300px;width:300px;} 
+#viewport {  
+	background-image:url(../images/texture.jpg);height:600px; width:800px;
+	-webkit-perspective:800;
+	   -moz-perspective:800;
+	    -ms-perspective:800;
+	     -o-perspective:800;
+		   perspective:800;	 
+	-webkit-perspective-origin:50% 200px;
+	   -moz-perspective-origin:50% 200px;
+	    -ms-perspective-origin:50% 200px;
+	     -o-perspective-origin:50% 200px;
+		    perspective-origin:50% 200px;	
+	-webkit-transform:scale(0.75,0.75);
+	   -moz-transform:scale(0.75,0.75);
+	    -ms-transform:scale(0.75,0.75);
+	     -o-transform:scale(0.75,0.75);
+		    transform:scale(0.75,0.75);	
+}
+#cube {
+	position: relative;margin:130px auto;height:300px;width:300px;
+	-webkit-transition:-webkit-transform 50ms linear;
+	   -moz-transition:   -moz-transform 50ms linear;
+	    -ms-transition:    -ms-transform 50ms linear;
+	     -o-transition:     -o-transform 50ms linear;
+		    transition:        transform 50ms linear;	
+	-webkit-transition-property: -webkit-transform;
+	   -moz-transition-property:    -moz-transform;
+	     ms-transition-property:      ms-transform;
+	     -o-transition-property:      -o-transform;
+		    transition-property:         transform;	
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	     -o-transform-style: preserve-3d;
+		    transform-style: preserve-3d;		
+	-webkit-transform: rotateX(-10deg) rotateY(20deg);
+	   -moz-transform: rotateX(-10deg) rotateY(20deg);
+	    -ms-transform: rotateX(-10deg) rotateY(20deg);
+		 -o-transform: rotateX(-10deg) rotateY(20deg);
+		    transform: rotateX(-10deg) rotateY(20deg);		
+} 
+  
+#cube > .face:first-child{
+	-webkit-transform: rotateX(90deg) translateZ(150px);
+	   -moz-transform: rotateX(90deg) translateZ(150px);
+	    -ms-transform: rotateX(90deg) translateZ(150px);
+	     -o-transform: rotateX(90deg) translateZ(150px);
+	        transform: rotateX(90deg) translateZ(150px);	
+}
+#cube > .face:nth-child(2){
+	-webkit-transform: translateZ(150px);
+	   -moz-transform: translateZ(150px);
+	    -ms-transform: translateZ(150px);
+	     -o-transform: translateZ(150px);
+	        transform: translateZ(150px);	
+}
+#cube > .face:nth-child(3){
+	-webkit-transform: rotateY(90deg) translateZ(150px);  
+	   -moz-transform: rotateY(90deg) translateZ(150px);
+	    -ms-transform: rotateY(90deg) translateZ(150px);  
+	     -o-transform: rotateY(90deg) translateZ(150px); 
+	        transform: rotateY(90deg) translateZ(150px); 	
+}
+#cube > .face:nth-child(4){
+	-webkit-transform: rotateY(180deg) translateZ(150px);
+	   -moz-transform: rotateY(180deg) translateZ(150px);
+	    -ms-transform: rotateY(180deg) translateZ(150px);
+	     -o-transform: rotateY(180deg) translateZ(150px);
+	        transform: rotateY(180deg) translateZ(150px);	
+}
+#cube > .face:nth-child(5){
+	-webkit-transform: rotateY(-90deg) translateZ(150px);
+	   -moz-transform: rotateY(-90deg) translateZ(150px);
+	    -ms-transform: rotateY(-90deg) translateZ(150px);
+	     -o-transform: rotateY(-90deg) translateZ(150px);
+	        transform: rotateY(-90deg) translateZ(150px);	
+}
+#cube > .face:nth-child(6){
+	-webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(150px);
+	   -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(150px);
+	    -ms-transform: rotateX(-90deg) rotate(180deg) translateZ(150px);
+	     -o-transform: rotateX(-90deg) rotate(180deg) translateZ(150px);
+	        transform: rotateX(-90deg) rotate(180deg) translateZ(150px);	
+}
+
