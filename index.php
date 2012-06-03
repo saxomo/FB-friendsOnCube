@@ -2,8 +2,8 @@
 require 'facebook-php-sdk/src/facebook.php';
 require 'includes/function.php';
 
-define('FACEBOOK_APP_ID', 'app_id');
-define('FACEBOOK_SECRET', 'f_secret');
+define('FACEBOOK_APP_ID', '172903986080197');
+define('FACEBOOK_SECRET', 'ebd2ae521bb0b520f96f865ec363b1d7');
 define('DISPLAY', 'page'); 
 define('SCOPE', 'user_photos,publish_stream');
 
@@ -54,8 +54,6 @@ function doAuth($url)
  
 ?>
  
-
-
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -67,13 +65,17 @@ function doAuth($url)
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Friends Cube</title>
 <script type="text/javascript"> 
+
+if(!$.browser.webkit) {
+    alert("Your browser is not appropriate for this content. Use Google Chrome or Safari insted")
+}
 	
  
-var rCub=300;
+var rCub=300;var xPos=100,yPos=100;
 window.document.onmousemove  = getMouseXYPos;
 function getMouseXYPos(e ) {
 	 xPos= e.clientX-300;yPos=e.clientY-300;}
-var xPos,yPos;
+
 $(function(){	
  	var properties = ['', 'Webkit', 'Moz',
                   'Ms', 'O']; 
@@ -166,8 +168,8 @@ if(!$me){$loginUrl = $facebook->getLoginUrl();}
 			$photo="http://graph.facebook.com/".$y['data'][$i]['id']."/picture?type=large";	 
 			$out.=$i%10==0 ? '<tr><td class="checkline"><input onclick="changeAll('.$i.');" type="checkbox" name="imgs'.$i.'" value="'.$i.'" /></td>' : '';
 			$out.='<td id="td'.$i.'" class="im" style=" background-image:url(http://graph.facebook.com/'.$y['data'][$i]['id'].'/picture);';
-			$out.='background-repeat:no-repeat; background-position:center">'; 
-			$out.='<img class="invisible" id="'.$y['data'][$i]['id'].'" name="'.$y['data'][$i]['id'].'" src="'.$photo.'">';
+			$out.='background-repeat:no-repeat; background-position:center"  title="'.$y['data'][$i]['name'].'">'; 
+			$out.='<img class="invisible"   name="'.$y['data'][$i]['id'].'_'.$y['data'][$i]['name'].'" src="'.$photo.'">';
 			$out.='<input class="notcheckline" onclick="bg('.$i.');" type="checkbox" name="img'.$i.'" value="'.$i.'" />';	 
 			$out.='</td>';
 			$out.=$i%10==9 ? '<td>&nbsp;</td></tr>' : '';		  
@@ -196,10 +198,10 @@ $(document).ready(setCube=function(){
 			c=rCub/b;
 			d=rCub/a;
 			isB=a>b;
-        	out+='<div  class="face '+num[i]+'" >';
-			out+='<img src="http://graph.facebook.com/'+pict[setImg].name+'/picture?type=large" '; 
+        	out+='<div  class="face '+num[i]+'">';
+			out+='<img src="http://graph.facebook.com/'+pict[setImg].name.split("_")[0]+'/picture?type=large" '; 
 			out+='style="width:'+(isB?(a*c):rCub)+'px;height:'+(isB?rCub:(b*d))+'px;';
-			out+='margin: -'+ (isB?0:(b-a)*d*0.5)+'px 0 0 -'+ (isB?(a-b)*c*0.5:0)+'px"/></div>' ;
+			out+='margin: -'+ (isB?0:(b-a)*d*0.5)+'px 0 0 -'+ (isB?(a-b)*c*0.5:0)+'px" title="'+pict[setImg].name.split("_")[1]+'" /></div>' ;
 	 	} 
 		$("#cube").html(out);		
 	}	
