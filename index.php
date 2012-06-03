@@ -2,8 +2,8 @@
 require 'facebook-php-sdk/src/facebook.php';
 require 'includes/function.php';
 
-define('FACEBOOK_APP_ID', '172903986080197');
-define('FACEBOOK_SECRET', 'ebd2ae521bb0b520f96f865ec363b1d7');
+define('FACEBOOK_APP_ID', '/*insert app id*/');
+define('FACEBOOK_SECRET', '/*insert facbook secret*/');
 define('DISPLAY', 'page'); 
 define('SCOPE', 'user_photos,publish_stream');
 
